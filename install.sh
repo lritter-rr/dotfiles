@@ -16,24 +16,6 @@ fi
 echo "plus lolfish" > "$HOME/.config/omf/bundle"
 echo "✨ Added lolfish to OMF bundle"
 
-# --- Install thefuck ---
-echo "Installing thefuck..."
-
-if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    if command -v apt-get &> /dev/null; then
-        sudo apt update && sudo apt install -y python3-dev python3-pip python3-setuptools
-        pip3 install thefuck --user
-    elif command -v pacman &> /dev/null; then
-        sudo pacman -S --noconfirm thefuck
-    fi
-elif [[ "$OSTYPE" == "darwin"* ]]; then
-    if command -v brew &> /dev/null; then
-        brew install thefuck
-    else
-        echo "Homebrew not found. Please install Homebrew first."
-    fi
-fi
-
 # 3. Setup Fish Shell
 CURRENT_SHELL=$(getent passwd "$USER" | cut -d: -f7)
 FISH_PATH=$(command -v fish)

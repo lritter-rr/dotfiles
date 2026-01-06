@@ -1,2 +1,3 @@
 theme default
 package https://github.com/jhillyerd/plugin-git
+package https://github.com/oh-my-fish/plugin-thefuck

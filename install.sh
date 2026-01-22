@@ -135,7 +135,7 @@ fi
 if ! grep -q 'alias gst' "$FISH_CONFIG"; then
     echo 'alias gst="git status | lolcat"' >> "$FISH_CONFIG"
     echo "✅ Alias 'gst' added for 'git status'."
-    echo 'alias pwd="pwd | lolcat"' >> "$FISH_CONFIG"
+    echo 'alias pw="pwd | lolcat"' >> "$FISH_CONFIG"
     echo 'alias l="ls -a | lolcat"' >> "$FISH_CONFIG"
 else
     echo "✅ Alias 'gst' already exists."

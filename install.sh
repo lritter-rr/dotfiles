@@ -44,7 +44,7 @@ else
   fish -c "omf reload"
 fi
 
-# --- NEW: Ensure Lambda theme is installed and set ---
+# --- Ensure Lambda theme is installed and set ---
 echo "🎨 Setting theme to Lambda..."
 fish -c "omf install lambda"
 fish -c "omf theme lambda"
@@ -95,7 +95,7 @@ else
 fi
 
 # --------------------------------------------------------
-# 5. Install lolcat (NEW)
+# 5. Install lolcat
 # --------------------------------------------------------
 echo "--- Lolcat Setup ---"
 
@@ -120,47 +120,34 @@ else
 fi
 
 # --------------------------------------------------------
-# 6. Configure Aliases
+# 6. Configure Abbreviations (Clean Method)
 # --------------------------------------------------------
-echo "🔗 Configuring aliases..."
-FISH_CONFIG="$HOME/.config/fish/config.fish"
+echo "🔗 Configuring abbreviations..."
 
-# Ensure the config file exists
-if [ ! -f "$FISH_CONFIG" ]; then
-    mkdir -p "$(dirname "$FISH_CONFIG")"
-    touch "$FISH_CONFIG"
-fi
+# We use conf.d so we don't pollute the main config.fish file.
+# Fish automatically loads files found in ~/.config/fish/conf.d/
+FISH_CONF_D="$HOME/.config/fish/conf.d"
+mkdir -p "$FISH_CONF_D"
 
-# Check if the alias already exists to avoid duplication
-if ! grep -q 'alias gst' "$FISH_CONFIG"; then
-    echo 'alias gst="git status | lolcat"' >> "$FISH_CONFIG"
-    echo "✅ Alias 'gst' added for 'git status'."
-else
-    echo "✅ Alias 'gst' already exists."
-fi
+# Write the abbreviations to a dedicated file
+cat <<EOF > "$FISH_CONF_D/abbreviations.fish"
+if status is-interactive
+    # Git
+    abbr --add gst "git status | lolcat"
+    abbr --add gpull "git pull"
+    abbr --add gpush "git push origin"
+    abbr --add gf "git fetch | lolcat"
 
-if ! grep -q 'alias pw' "$FISH_CONFIG"; then
-    echo 'alias pw="pwd | lolcat"' >> "$FISH_CONFIG"
-fi
+    # System / Utils
+    abbr --add pw "pwd | lolcat"
+    abbr --add l "ls -a | lolcat"
 
-if ! grep -q 'alias l' "$FISH_CONFIG"; then
-    echo 'alias l="ls -a | lolcat"' >> "$FISH_CONFIG"
-fi
+    # Ruby / Rubocop (Fixed typo: rsc)
+    # Note: When you type 'rsc' and space, this will expand to the full command
+    abbr --add rsc "rubocop (git diff --name-only --diff-filter=AM --cached) -A"
+end
+EOF
 
-if ! grep -q 'alias gpull' "$FISH_CONFIG"; then
-    echo 'alias gpull="git pull"' >> "$FISH_CONFIG"
-fi
-
-if ! grep -q 'alias gpush' "$FISH_CONFIG"; then
-    echo 'alias gpush="git push origin "' >> "$FISH_CONFIG"
-fi
-
-if ! grep -q 'alias gf' "$FISH_CONFIG"; then
-    echo 'alias gf="git fetch | lolcat"' >> "$FISH_CONFIG"
-fi
-
-if ! grep -q 'alias rcs' "$FISH_CONFIG"; then
-    echo 'alias rcs="rubocop (git diff --name-only --diff-filter=AM --cached) -A"' >> "$FISH_CONFIG"
-fi
+echo "✅ Abbreviations file created at $FISH_CONF_D/abbreviations.fish"
 
 echo "🎉 Setup complete!"

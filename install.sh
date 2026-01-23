@@ -148,7 +148,7 @@ if ! grep -q 'alias l' "$FISH_CONFIG"; then
 fi
 
 if ! grep -q 'alias gpull' "$FISH_CONFIG"; then
-    echo 'alias gpull="git pull origin "' >> "$FISH_CONFIG"
+    echo 'alias gpull="git pull"' >> "$FISH_CONFIG"
 fi
 
 if ! grep -q 'alias gpush' "$FISH_CONFIG"; then

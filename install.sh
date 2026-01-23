@@ -172,7 +172,7 @@ if status is-interactive
     abbr --add gst "git status | lolcat"
     abbr --add gpull "git pull"
     abbr --add gpush "git push origin"
-    abbr --add gf "git fetch | lolcat"
+    abbr --add gf "git fetch"
 
     # System / Utils
     abbr --add pw "pwd | lolcat"

@@ -141,6 +141,10 @@ if status is-interactive
     # System / Utils
     abbr --add pw "pwd | lolcat"
     abbr --add l "ls -a | lolcat"
+    abbr --add cdc "cd coyote"
+    abbr --add cdf "cd falco"
+    abbr --add cdb "cd beeline"
+    abbr --add cdd "cd falco-web-lite"
 
     # Ruby / Rubocop (Fixed typo: rsc)
     # Note: When you type 'rsc' and space, this will expand to the full command

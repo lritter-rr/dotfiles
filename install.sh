@@ -135,8 +135,6 @@ fi
 if ! grep -q 'alias gst' "$FISH_CONFIG"; then
     echo 'alias gst="git status | lolcat"' >> "$FISH_CONFIG"
     echo "✅ Alias 'gst' added for 'git status'."
-    echo 'alias pw="pwd | lolcat"' >> "$FISH_CONFIG"
-    echo 'alias l="ls -a | lolcat"' >> "$FISH_CONFIG"
 else
     echo "✅ Alias 'gst' already exists."
 fi
@@ -149,12 +147,20 @@ if ! grep -q 'alias l' "$FISH_CONFIG"; then
     echo 'alias l="ls -a | lolcat"' >> "$FISH_CONFIG"
 fi
 
-if ! grep -q 'alias gpos' "$FISH_CONFIG"; then
-    echo 'alias gpos="git pull origin staging | lolcat"' >> "$FISH_CONFIG"
+if ! grep -q 'alias gpull' "$FISH_CONFIG"; then
+    echo 'alias gpull="git pull origin "' >> "$FISH_CONFIG"
+fi
+
+if ! grep -q 'alias gpush' "$FISH_CONFIG"; then
+    echo 'alias gpush="git push origin "' >> "$FISH_CONFIG"
 fi
 
 if ! grep -q 'alias gf' "$FISH_CONFIG"; then
     echo 'alias gf="git fetch | lolcat"' >> "$FISH_CONFIG"
+fi
+
+if ! grep -q 'alias rcs' "$FISH_CONFIG"; then
+    echo 'alias rsc="rubocop $(git diff --name-only --diff-filter=AM --cached)"' >> "$FISH_CONFIG"
 fi
 
 echo "🎉 Setup complete!"

@@ -169,14 +169,14 @@ mkdir -p "$FISH_CONF_D"
 cat <<EOF > "$FISH_CONF_D/abbreviations.fish"
 if status is-interactive
     # Git
-    abbr --add gst "git status | lolcat"
+    abbr --add gst "git status | lolcat -F 0.4"
     abbr --add gpull "git pull"
     abbr --add gpush "git push origin"
     abbr --add gf "git fetch"
 
     # System / Utils
-    abbr --add pw "pwd | lolcat"
-    abbr --add l "ls -a | lolcat"
+    abbr --add pw "pwd | lolcat -F 0.4"
+    abbr --add l "ls -a | lolcat -F 0.4"
     abbr --add cdc "cd coyote"
     abbr --add cdf "cd falco"
     abbr --add cdb "cd beeline"

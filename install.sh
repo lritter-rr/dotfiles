@@ -169,7 +169,7 @@ mkdir -p "$FISH_CONF_D"
 cat <<EOF > "$FISH_CONF_D/abbreviations.fish"
 if status is-interactive
     # Git
-    abbr --add gst "git status | lolcat -F 0.4"
+    abbr --add gst "git status"
     abbr --add gpull "git pull"
     abbr --add gpush "git push origin"
     abbr --add gf "git fetch"
@@ -181,6 +181,8 @@ if status is-interactive
     abbr --add cdf "cd falco"
     abbr --add cdb "cd beeline"
     abbr --add cdd "cd falco-web-lite"
+    abbr --add cdl "cd lyra"
+    abbr --add specstaged "git diff --cached --name-only --diff-filter=d | grep '_spec.rb$' | xargs -r bundle exec rspec"
 
     # Ruby / Rubocop (Fixed typo: rsc)
     # Note: When you type 'rsc' and space, this will expand to the full command

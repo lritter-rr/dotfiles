@@ -182,8 +182,7 @@ if status is-interactive
     abbr --add cdb "cd beeline"
     abbr --add cdd "cd falco-web-lite"
     abbr --add cdl "cd lyra"
-    abbr --add specstaged "git diff --cached --name-only --diff-filter=d | grep '_spec.rb$' | xargs -r bundle exec rspec"
-
+    abbr --add specstaged "git diff --cached --name-only --diff-filter=d | grep '_spec.rb\$' | xargs -r bundle exec rspec"
     # Ruby / Rubocop (Fixed typo: rsc)
     # Note: When you type 'rsc' and space, this will expand to the full command
     abbr --add rsc "rubocop (git diff --name-only --diff-filter=AM --cached) -A"

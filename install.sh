@@ -182,7 +182,7 @@ if status is-interactive
     abbr --add cdb "cd beeline"
     abbr --add cdd "cd falco-web-lite"
     abbr --add cdl "cd lyra"
-    abbr --add specstaged "git diff --cached --name-only --diff-filter=d | grep '_spec.rb\$' | xargs -r bundle exec rspec"
+    abbr --add specstaged 'git diff --cached --name-only --diff-filter=d | grep "_spec.rb$" | xargs -r bundle exec rspec'
 end
 EOF
 

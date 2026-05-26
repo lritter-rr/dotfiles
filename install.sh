@@ -196,6 +196,7 @@ if status is-interactive
     abbr --add cdd "cd falco-web-lite"
     abbr --add cdl "cd lyra"
     abbr --add specstaged 'git diff --cached --name-only --diff-filter=d | grep "_spec.rb$" | xargs -r bundle exec rspec'
+    abbr --add rcopstaged "bundle exec rubocop (git diff --name-only --cached | grep '\.rb$')"
 end
 EOF
 

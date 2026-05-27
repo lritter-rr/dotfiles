@@ -195,11 +195,31 @@ if status is-interactive
     abbr --add cdb "cd beeline"
     abbr --add cdd "cd falco-web-lite"
     abbr --add cdl "cd lyra"
-    abbr --add specstaged "bundle exec rspec (git diff --cached --name-only --diff-filter=d | grep '_spec.rb$')"
-    abbr --add rcopstaged "bundle exec rubocop (git diff --name-only --cached | grep '\.rb$')"
+    # abbr --add specstaged "bundle exec rspec (git diff --cached --name-only --diff-filter=d | grep '_spec.rb$')"
+    # abbr --add rcopstaged "bundle exec rubocop (git diff --name-only --cached | grep '\.rb$')"
 end
 EOF
 
 echo "✅ Abbreviations file created at $FISH_CONF_D/abbreviations.fish"
+
+# Define the target Fish functions directory
+FISH_FUNC_DIR="$HOME/.config/fish/functions"
+
+# Ensure the directory path exists
+mkdir -p "$FISH_FUNC_DIR"
+
+# Method A: Deploying a function using an inline Here-Doc
+cat << 'EOF' > "$FISH_FUNC_DIR/mkcd.fish"
+    function specstaged
+        bundle exec rspec (git diff --cached --name-only --diff-filter=d | grep '_spec.rb$')
+    end
+    
+    function rcopstaged
+        bundle exec rubocop (git diff --name-only --cached | grep '\.rb$')
+    end
+EOF
+
+
+echo "Fish functions successfully installed!"
 
 echo "🎉 Setup complete!"

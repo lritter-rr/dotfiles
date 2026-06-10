@@ -95,20 +95,7 @@ else
 fi
 
 # --------------------------------------------------------
-# 5. Install ripgrep
-# --------------------------------------------------------
-echo "--- Ripgrep Setup ---"
-
-if command -v rg &> /dev/null; then
-    echo "✅ ripgrep is already installed."
-else
-    echo "🔍 Installing ripgrep..."
-    sudo apt-get install ripgrep
-    echo "✅ ripgrep installed successfully."
-fi
-
-# --------------------------------------------------------
-# 6. Install lolcat
+# 5. Install lolcat
 # --------------------------------------------------------
 echo "--- Lolcat Setup ---"
 

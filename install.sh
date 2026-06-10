@@ -150,6 +150,18 @@ else
     fi
 fi
 
+# --------------------------------------------------------
+# Install claude CLI
+# --------------------------------------------------------
+echo "--- claude CLI Setup ---"
+if command -v claude &> /dev/null; then
+    echo "Claude Code installed already "
+else
+    curl -fsSL https://claude.ai/install.sh | bash
+    echo "Claude Code installed!"
+fi
+
+
 # 2. Configure Fish (Idempotent check)
 FISH_CONFIG="$HOME/.config/fish/config.fish"
 

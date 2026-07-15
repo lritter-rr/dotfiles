@@ -146,6 +146,7 @@ if command -v claude &> /dev/null; then
 else
     curl -fsSL https://claude.ai/install.sh | bash
     echo "Claude Code installed!"
+    claude mcp add --transport http atlassian https://mcp.atlassian.com/v1/mcp/
 fi
 
 

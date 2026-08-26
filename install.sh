@@ -149,6 +149,7 @@ else
     claude mcp add --transport http atlassian https://mcp.atlassian.com/v1/mcp/
 fi
 
+sudo apt install jq
 
 # 2. Configure Fish (Idempotent check)
 FISH_CONFIG="$HOME/.config/fish/config.fish"

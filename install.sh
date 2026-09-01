@@ -137,6 +137,22 @@ else
     fi
 fi
 
+# Install fzf if it is not found in the current PATH
+if not type -q fzf
+    echo "Installing fzf..."
+    sudo apt update
+    sudo apt install -y fzf
+    
+    # Verify installation succeeded
+    if type -q fzf
+        echo "fzf installed successfully."
+    else
+        echo "Error: fzf failed to install."
+    end
+else
+    echo "fzf is already installed, skipping."
+end
+
 # --------------------------------------------------------
 # Install claude CLI
 # --------------------------------------------------------

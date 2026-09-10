@@ -234,6 +234,10 @@ cat << 'EOF' > "$FISH_FUNC_DIR/mkcd.fish"
     function rcopstaged
         bundle exec rubocop (git diff --name-only --cached | grep '\.rb$')
     end
+
+    function lyralint -a folder
+        npx eslint "$folder/**/*.{ts,tsx}" --fix
+    end
 EOF
 
 

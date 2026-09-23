@@ -203,6 +203,9 @@ if status is-interactive
     abbr --add gpull "git pull"
     abbr --add gpush "git push origin"
     abbr --add gf "git fetch"
+    abbr --add grdb "git restore db/structure.sql"
+    abbr --add ga "git add ."
+    addr --add gls "git diff --cached --name-only --diff-filter=ACMR | xargs npx prettier --write --ignore-unknown && git diff --cached --name-only --diff-filter=ACMR | xargs git add"
 
     # System / Utils
     abbr --add pw "pwd | lolcat -F 0.4"
